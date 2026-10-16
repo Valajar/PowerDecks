@@ -1,2 +1,5 @@
 # Marker that makes the game run the self-test on launch
 dev/RUN_SELFTEST
+
+# Python bytecode from the art scripts
+__pycache__/

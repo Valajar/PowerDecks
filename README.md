@@ -61,5 +61,5 @@ Each line is a chain: a later voucher only appears once the one before it is red
 
 ## Development
 
-- `tools/gen_art.ps1` generates every sprite sheet (1x and 2x) from code: `pwsh -File tools/gen_art.ps1 -Preview preview.png`
+- `tools/art/` generates every sprite sheet (1x and 2x) from code with Python and Pillow: `python tools/art/build.py --preview preview.png`. `common.py` holds the shared palette and the base game's layout conventions; `decks.py`, `vouchers.py` and `jokers.py` each draw their own sheets, and `python tools/art/build.py jokers` rebuilds just one of them.
 - `tools/run_game.ps1 -SelfTest` launches Balatro through Steam and runs `dev/selftest.lua` inside the game. It starts throwaway runs on every deck and sleeve, checks each item against the live game state, prints `[PWRTEST]` lines to the Lovely log and quits. Saving is blocked while it runs.

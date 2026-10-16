@@ -287,12 +287,13 @@ step('rarity vouchers', always, 0.5, function()
     check('headhunter keeps Uncommon at 2X', near(after.Uncommon, before.Uncommon * 2), true)
     -- The real roll, sampled: Uncommon and Rare should now come up noticeably more often
     local counts = { [1] = 0, [2] = 0, [3] = 0 }
-    for i = 1, 4000 do
+    for i = 1, 10000 do
         local r = SMODS.poll_rarity('Joker', 'pwr_selftest_rarity' .. i)
         if counts[r] then counts[r] = counts[r] + 1 end
     end
     log('rarity sample after both vouchers: common=' .. counts[1] .. ' uncommon=' .. counts[2] .. ' rare=' .. counts[3])
-    check('rare share above the base 5% after Headhunter', counts[3] / 4000 > 0.07, true)
+    -- Expected 7.7% (10 of 130 weight) against a base of 5%; 6.3% sits about five standard deviations from both
+    check('rare share above the base 5% after Headhunter', counts[3] / 10000 > 0.063, true)
     for _, key in ipairs({ 'v_pwr_talent_scout', 'v_pwr_headhunter' }) do
         G.GAME.used_vouchers[key] = nil
         voucher_card(key):remove()
