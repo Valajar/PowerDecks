@@ -1,0 +1,17 @@
+{
+	"id": "PowerDecks",
+	"name": "PowerDecks",
+	"display_name": "PowerDecks",
+	"author": ["Noah", "Claude"],
+	"description": "Simple, strong decks and vouchers, with matching Card Sleeves and a few Jokers.",
+	"prefix": "pwr",
+	"main_file": "PowerDecks.lua",
+	"priority": 0,
+	"badge_colour": "E0A93B",
+	"badge_text_colour": "22223B",
+	"version": "0.1.0",
+	"dependencies": [
+		"Steamodded (>=1.0.0~BETA-0827c)",
+		"Talisman (>=2.4.0)"
+	]
+}
